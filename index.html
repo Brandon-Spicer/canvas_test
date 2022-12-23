@@ -1,9 +1,24 @@
 <!DOCTYPE html>
     <head>
-        <script src="script.js"></script>
+        <script src="boids.js"></script>
         <link rel="stylesheet" href="style.css">
     </head>
-    <body onload="draw()">
-        <canvas id="myCanvas"></canvas>
+    <body onload="boids()">
+        <div id="sidebar"></div>
+        <div id="displayBox">
+            <canvas id="myCanvas"></canvas>
+        </div>
+        <div id="buttonBox">
+            <div id="buttonBar">
+                <button id="startButton">start</button>
+                <button id="stopButton">stop</button>
+                <button id="restartButton">restart</button>
+                <button id="forwardButton">forward</button>
+                <button id="backButton">back</button>
+                <button id="jumpForwardButton">jump10</button>
+                <button id="jumpBackwardButton">back10</button>
+        </div> 
+        </div>
+
     </body>
 </html>

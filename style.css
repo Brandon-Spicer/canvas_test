@@ -1,3 +1,18 @@
-canvas {
-  border: 1px solid red;
+#displayBox {
+  width: auto;
+  display: flex;
+  justify-content: center;
+}
+
+#buttonBox {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+button {
+  height: 30px;
+  width: 60px;
+  background-color: gray;
 }

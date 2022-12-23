@@ -1,12 +1,13 @@
-function draw() {
+function gameOfLife() {
   const canvas = document.getElementById("myCanvas");
-  canvas.width = 200;
-  canvas.height = 200;
+  canvas.width = 400;
+  canvas.height = 400;
   const ctx = canvas.getContext("2d");
 
   // state
-  H = 100;
-  W = 100;
+  H = 200;
+  W = 200;
+  const size = 2;
   const state = Array(H);
   const nextState = Array(H);
 
@@ -35,31 +36,16 @@ function draw() {
             if (!(k == 0 && l == 0)) {
               let y = (i + l) % H;
               let x = (j + k) % W;
-
-              if (x < 0) {
-                console.log("it was negative ", x);
-                x = W + x;
-              }
-              if (y < 0) {
-                console.log("it was negative", y);
-                y = H + y;
-              }
+              x = x < 0 ? W + x : x;
+              y = y < 0 ? H + y : y;
               numLiveNeighbors += state[y][x];
             }
           }
         }
         if (state[i][j] == 1) {
-          if (survival.includes(numLiveNeighbors)) {
-            nextState[i][j] = 1;
-          } else {
-            nextState[i][j] = 0;
-          }
+          nextState[i][j] = survival.includes(numLiveNeighbors) ? 1 : 0;
         } else {
-          if (birth.includes(numLiveNeighbors)) {
-            nextState[i][j] = 1;
-          } else {
-            nextState[i][j] = 0;
-          }
+          nextState[i][j] = birth.includes(numLiveNeighbors) ? 1 : 0;
         }
       }
     }
@@ -73,7 +59,6 @@ function draw() {
   }
 
   // draw
-  const size = 2;
   function draw() {
     for (let i = 0; i < H; i++) {
       for (let j = 0; j < W; j++) {
